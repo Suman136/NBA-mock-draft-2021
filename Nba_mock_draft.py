@@ -50,7 +50,7 @@ ann.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accura
 
 
 # Training the ANN on the Training set
-ann.fit(X, Y, batch_size = 10, epochs = 500)
+ann.fit(X, Y, batch_size = 128, epochs = 250)
 
 data2=pd.read_csv('stats2021.csv')
 raspored=pd.read_csv('raspored-2021.csv')
