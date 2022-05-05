@@ -141,7 +141,7 @@ ann.compile(optimizer = 'adam', loss = tf.keras.losses.BinaryCrossentropy(), met
 
 
 # Training the ANN on the Training set
-ann.fit(X, Y, batch_size = 100, epochs = 2500)
+ann.fit(X, Y, batch_size = 100, epochs = 1000)
 
 data2021=pd.read_csv('stats20212.csv')
 raspored=pd.read_csv('raspored-2021.csv')
