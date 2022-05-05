@@ -8,19 +8,64 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import RobustScaler
 from sklearn.preprocessing import MinMaxScaler
 
-data = pd.read_csv('p-t-19_brojevi.csv')
-data2= pd.read_csv('p-t-20_brojevi.csv')
-data3= pd.read_csv('p-t-16_brojevi.csv')
-data4= pd.read_csv('p-t-17_brojevi.csv')
-data5= pd.read_csv('p-t-18_brojevi.csv')
+data = pd.read_csv('p-t-17_brojevi.csv')
+data2= pd.read_csv('p-t-18_brojevi.csv')
+data3= pd.read_csv('p-t-19_brojevi.csv')
+data4= pd.read_csv('p-t-20_brojevi.csv')
+#data5= pd.read_csv('p-t-18_brojevi.csv')
+
+data=data[['Team',  'FGA_T',
+       'FG%_T', '3PA_T', '3P%_T',  'FTA_T', 'FT%_T', 'TOV_T',
+       'ORB_T', 'DRB_T', 'RPG_T', 'APG_T', 'SPG_T', 'BPG_T', 'PPG_T',
+       'TS%_T', 'eFG%_T', 'Total S%_T', 'ORB%_T', 'DRB%_T', 'TRB%_T', 'AST%_T',
+       'TOV%_T', 'STL%_T', 'BLK%_T', 'PPS_T', 'FIC40_T', 'ORtg_T', 'DRtg_T',
+       'eDiff_T', 'Poss_T', 'Pace_T', 'FG', 'FGA', 'FG%', '2P', '2P%',
+       '3P',  '3P%', 'FT', 'FT%', 'ORB', 'DRB', 'TRB', 'AST',
+       'STL', 'BLK', 'TOV', 'PTS', 'PER', 'TS%', 'eFG%', '3PAr', 'FTr',
+       'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS',
+       'DWS', 'WS', 'WS/40', 'OBPM', 'DBPM', 'BPM' , 'Age', 'Player','ID']]
+
+data2=data2[['Team',  'FGA_T',
+       'FG%_T', '3PA_T', '3P%_T',  'FTA_T', 'FT%_T', 'TOV_T',
+       'ORB_T', 'DRB_T', 'RPG_T', 'APG_T', 'SPG_T', 'BPG_T', 'PPG_T',
+       'TS%_T', 'eFG%_T', 'Total S%_T', 'ORB%_T', 'DRB%_T', 'TRB%_T', 'AST%_T',
+       'TOV%_T', 'STL%_T', 'BLK%_T', 'PPS_T', 'FIC40_T', 'ORtg_T', 'DRtg_T',
+       'eDiff_T', 'Poss_T', 'Pace_T', 'FG', 'FGA', 'FG%', '2P', '2P%',
+       '3P',  '3P%', 'FT', 'FT%', 'ORB', 'DRB', 'TRB', 'AST',
+       'STL', 'BLK', 'TOV', 'PTS', 'PER', 'TS%', 'eFG%', '3PAr', 'FTr',
+       'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS',
+       'DWS', 'WS', 'WS/40', 'OBPM', 'DBPM', 'BPM' , 'Age', 'Player','ID']]
+
+data3=data3[['Team',  'FGA_T',
+       'FG%_T', '3PA_T', '3P%_T',  'FTA_T', 'FT%_T', 'TOV_T',
+       'ORB_T', 'DRB_T', 'RPG_T', 'APG_T', 'SPG_T', 'BPG_T', 'PPG_T',
+       'TS%_T', 'eFG%_T', 'Total S%_T', 'ORB%_T', 'DRB%_T', 'TRB%_T', 'AST%_T',
+       'TOV%_T', 'STL%_T', 'BLK%_T', 'PPS_T', 'FIC40_T', 'ORtg_T', 'DRtg_T',
+       'eDiff_T', 'Poss_T', 'Pace_T', 'FG', 'FGA', 'FG%', '2P', '2P%',
+       '3P',  '3P%', 'FT', 'FT%', 'ORB', 'DRB', 'TRB', 'AST',
+       'STL', 'BLK', 'TOV', 'PTS', 'PER', 'TS%', 'eFG%', '3PAr', 'FTr',
+       'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS',
+       'DWS', 'WS', 'WS/40', 'OBPM', 'DBPM', 'BPM' , 'Age', 'Player','ID']]
+
+data4=data4[['Team',  'FGA_T',
+       'FG%_T', '3PA_T', '3P%_T',  'FTA_T', 'FT%_T', 'TOV_T',
+       'ORB_T', 'DRB_T', 'RPG_T', 'APG_T', 'SPG_T', 'BPG_T', 'PPG_T',
+       'TS%_T', 'eFG%_T', 'Total S%_T', 'ORB%_T', 'DRB%_T', 'TRB%_T', 'AST%_T',
+       'TOV%_T', 'STL%_T', 'BLK%_T', 'PPS_T', 'FIC40_T', 'ORtg_T', 'DRtg_T',
+       'eDiff_T', 'Poss_T', 'Pace_T', 'FG', 'FGA', 'FG%', '2P', '2P%',
+       '3P',  '3P%', 'FT', 'FT%', 'ORB', 'DRB', 'TRB', 'AST',
+       'STL', 'BLK', 'TOV', 'PTS', 'PER', 'TS%', 'eFG%', '3PAr', 'FTr',
+       'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS',
+       'DWS', 'WS', 'WS/40', 'OBPM', 'DBPM', 'BPM' , 'Age', 'Player','ID']]
+
 
 del data['Player']
 del data2['Player']
 del data3['Player']
 del data4['Player']
-del data5['Player']
+#del data5['Player']
 
-X1 = data.iloc[:,3:-2].values
+X1 = data.iloc[:,1:-1].values
 Y1 = data.iloc[:,-1].values
 
 
@@ -29,7 +74,7 @@ sc = StandardScaler()
 X1 = sc.fit_transform(X1)
 
 
-X2 = data2.iloc[:,3:-2].values
+X2 = data2.iloc[:,1:-1].values
 Y2 = data2.iloc[:,-1].values
 
 
@@ -37,7 +82,7 @@ X2=np.asarray(X2,float)
 X2 = sc.fit_transform(X2)
 
 
-X3 = data3.iloc[:,3:-2].values
+X3 = data3.iloc[:,1:-1].values
 Y3 = data3.iloc[:,-1].values
 
 
@@ -45,7 +90,7 @@ X3=np.asarray(X3,float)
 X3 = sc.fit_transform(X3)
 
 
-X4 = data4.iloc[:,3:-2].values
+X4 = data4.iloc[:,1:-1].values
 Y4 = data4.iloc[:,-1].values
 
 
@@ -53,38 +98,36 @@ X4=np.asarray(X4,float)
 X4 = sc.fit_transform(X4)
 
 
-X5 = data5.iloc[:,3:-2].values
-Y5 = data5.iloc[:,-1].values
+#X5 = data5.iloc[:,3:-2].values
+#Y5 = data5.iloc[:,-1].values
 
 
-X5=np.asarray(X5,float)
-X5 = sc.fit_transform(X5)
+#X5=np.asarray(X5,float)
+#X5 = sc.fit_transform(X5)
 
-array_tuple = (X1, X2, X3, X4, X5)
+array_tuple = (X1, X2, X3, X4)
 X = np.vstack(array_tuple)
 
 
 Y=np.append(Y1,Y2,0)
 Y=np.append(Y,Y3,0)
 Y=np.append(Y,Y4,0)
-Y=np.append(Y,Y5,0)
+#Y=np.append(Y,Y5,0)
 
 ann = tf.keras.models.Sequential()
 
 # Adding the input layer and the first hidden layer
-ann.add(tf.keras.layers.Dense(units=100, activation='relu'))
+ann.add(tf.keras.layers.Dense(units=1000, activation='relu'))
 
 # Adding the second hidden layer
-ann.add(tf.keras.layers.Dense(units=100, activation='relu'))
+ann.add(tf.keras.layers.Dense(units=1000, activation='relu'))
 
 # Adding the third hidden layer
 
-ann.add(tf.keras.layers.Dense(units=100, activation='relu'))
+ann.add(tf.keras.layers.Dense(units=1000, activation='relu'))
 
-ann.add(tf.keras.layers.Dense(units=100, activation='relu'))
+ann.add(tf.keras.layers.Dense(units=1000, activation='relu'))
 
-
-ann.add(tf.keras.layers.Dense(units=100, activation='relu'))
 
 
 # Adding the output layer
@@ -93,27 +136,29 @@ ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
 # Part 3 - Training the ANN
 
 # Compiling the ANN
-ann.compile(optimizer = 'Adadelta', loss = tf.keras.losses.BinaryCrossentropy(), metrics=['accuracy'])
-#ann.compile(optimizer = 'adam', loss = tf.keras.losses.BinaryCrossentropy(), metrics = ['accuracy'])
+#ann.compile(optimizer = 'Adadelta', loss = tf.keras.losses.BinaryCrossentropy(), metrics=['accuracy'])
+ann.compile(optimizer = 'adam', loss = tf.keras.losses.BinaryCrossentropy(), metrics = ['accuracy'])
 
 
 # Training the ANN on the Training set
-ann.fit(X, Y, batch_size = 100, epochs = 25000)
+ann.fit(X, Y, batch_size = 100, epochs = 2500)
 
-data2=pd.read_csv('stats2021.csv')
+data2021=pd.read_csv('stats20212.csv')
 raspored=pd.read_csv('raspored-2021.csv')
 tiiim=raspored.iloc[:,:].values
 
-data2=data2[['Team', 'GP_T', 'MPG_T', 'FGM_T', 'FGA_T', 'FG%_T', '3PM_T', '3PA_T',
-       '3P%_T', 'FTM_T', 'FTA_T', 'FT%_T', 'TOV_T', 'PF_T', 'ORB_T', 'DRB_T',
-       'RPG_T', 'APG_T', 'SPG_T', 'BPG_T', 'PPG_T', 'TS%_T', 'eFG%_T',
-       'Total S%_T', 'ORB%_T', 'DRB%_T', 'TRB%_T', 'AST%_T', 'TOV%_T',
-       'STL%_T', 'BLK%_T', 'PPS_T', 'FIC40_T', 'ORtg_T', 'DRtg_T', 'eDiff_T',
-       'Poss_T', 'Pace_T', 'FG', 'FGA', 'FG%', '2P', '2PA', '2P%',
-       '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST',
-       'STL', 'BLK', 'TOV', 'PF', 'PTS', 'PER', 'TS%', 'eFG%', '3PAr',
-       'FTr', 'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%',
-       'USG%', 'OWS', 'DWS', 'WS', 'WS/40', 'OBPM', 'DBPM', 'BPM', 'Player']]
+
+
+data2021=data2021[['Team',  'FGA_T',
+       'FG%_T', '3PA_T', '3P%_T',  'FTA_T', 'FT%_T', 'TOV_T',
+       'ORB_T', 'DRB_T', 'RPG_T', 'APG_T', 'SPG_T', 'BPG_T', 'PPG_T',
+       'TS%_T', 'eFG%_T', 'Total S%_T', 'ORB%_T', 'DRB%_T', 'TRB%_T', 'AST%_T',
+       'TOV%_T', 'STL%_T', 'BLK%_T', 'PPS_T', 'FIC40_T', 'ORtg_T', 'DRtg_T',
+       'eDiff_T', 'Poss_T', 'Pace_T', 'FG', 'FGA', 'FG%', '2P', '2P%',
+       '3P',  '3P%', 'FT', 'FT%', 'ORB', 'DRB', 'TRB', 'AST',
+       'STL', 'BLK', 'TOV', 'PTS', 'PER', 'TS%', 'eFG%', '3PAr', 'FTr',
+       'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS',
+       'DWS', 'WS', 'WS/40', 'OBPM', 'DBPM', 'BPM' , 'Age', 'Player']]
 
 draft_lista=['NBA draft']
 postotak=['Percentage']
@@ -123,10 +168,10 @@ for i in range(len(tiiim)):
   draft_lista.append(team)
   tablica=[]
 
-  data2=data2[data2.Player != str(draft_lista[-2])]
+  data2021=data2021[data2021.Player != str(draft_lista[-2])]
 
-  filter=data2[data2.Team==team]
-  K= filter.iloc[:,3:-1].values
+  filter=data2021[data2021.Team==team]
+  K= filter.iloc[:,1:-1].values
   T=filter.iloc[:,-1].values
   
 
@@ -143,8 +188,7 @@ for i in range(len(tiiim)):
                        C[a,41],C[a,42],C[a,43],C[a,44],C[a,45],C[a,46],C[a,47],C[a,48],
                        C[a,49],C[a,50],C[a,51],C[a,52],C[a,53],C[a,54],C[a,55],C[a,56],
                        C[a,57],C[a,58],C[a,59],C[a,60],C[a,61],C[a,62],C[a,63],C[a,64],
-                       C[a,65],C[a,66],C[a,67],C[a,68],C[a,69],C[a,70],C[a,71],C[a,72],
-                       C[a,73],C[a,74],C[a,75]]])
+                       C[a,65],C[a,66],C[a,67],C[a,68]]])
                        
     tablica.append(prvi)
     print(tablica)
